@@ -20,7 +20,7 @@ def getnowAPI(arg) :
         paramObj = json.loads(r.text)
         print paramObj["arg"]
 
-
+echo "test"
 
 
 #obj = json.loads(r.text)
