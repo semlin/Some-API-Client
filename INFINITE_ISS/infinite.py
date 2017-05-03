@@ -3,7 +3,7 @@
 
 #Prérequis pip install requests
 
-import requests, os, json
+import requests, os, json, datetime
 
 #import sys, os, time
 #from datetime import datetime
@@ -20,10 +20,17 @@ def getnowAPI(arg) :
 #        print paramObj["arg"]
         return paramObj[arg]
 
-
-
+def getnowAPIpos(arg) :
+        r = requests.get("http://api.open-notify.org/iss-now.json")
+        paramObj = json.loads(r.text)
+        paramObjloc = paramObj[iss_position]
+        return paramObjloc[arg]
 
 #obj = json.loads(r.text)
 #print obj['timestamp']
 
 print(getnowAPI("timestamp"))
+#print('Réponse recue à {}'.format(getnowAPI("timestamp")))
+print("La position de la station est :")
+print('Longitude : {}'.format(getnowAPIpos("longitude")))
+print('Latitude : {}'.format(getnowAPIpos("latitude")))
