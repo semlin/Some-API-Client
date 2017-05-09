@@ -1,9 +1,9 @@
 {
 "city":{"latit":"0.00","longit":"0.00"},
-"NY" = {"lat": 40.71, "lon": -74},
-"Paris" = {"lat": 48.83, "lon": 2.333},
-"Bsb" = {"lat": 47.96, "lon": 2.11},
-"Rebrechien" = {"lat": 47.98, "lon": 2.14},
-"Nice" = {"lat": 43.40, "lon": 7.84},
-"Lyon" = {"lat": 45.69, "lon": 4.89}
+"NY":{"lat": 40.71, "lon": -74},
+"Paris":{"lat": 48.83, "lon": 2.333},
+"Bsb":{"lat": 47.96, "lon": 2.11},
+"Rebrechien":{"lat": 47.98, "lon": 2.14},
+"Nice":{"lat": 43.40, "lon": 7.84},
+"Lyon":{"lat": 45.69, "lon": 4.89}
 }
