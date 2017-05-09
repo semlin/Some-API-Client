@@ -19,5 +19,7 @@ http://www.coordonneesgps.net/coordonnees-gps/
 
 Tu as besoins d'extraire la latitude et la longitude et d'inclure les paramètres dans la ligne qui suis.
 Rajoute aussi au début le nom de ta ville.
+
 * "city":{"latit":"0.00","longit":"0.00"},
+
 Ensuite tu peux rajouter cette ligne (partout sauf à la dernière ligne) dans le fichier "someCity.json".
