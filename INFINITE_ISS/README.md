@@ -15,7 +15,8 @@ Vous pouvez aussi changer Paris par le nom de votre ville mais pensez à le fair
 ### HOW ADD CITY
 
 Tu peux te service de ce liens pour chopper les coordoné GPS de ta ville.
-http://www.coordonneesgps.net/coordonnees-gps/
+
+* http://www.coordonneesgps.net/coordonnees-gps/
 
 Tu as besoins d'extraire la latitude et la longitude et d'inclure les paramètres dans la ligne qui suis.
 Rajoute aussi au début le nom de ta ville.
