@@ -8,8 +8,14 @@ from time import gmtime, strftime
 
 NY = {"lat": 40.71, "lon": -74}
 Paris = {"lat": 48.83, "lon": 2.333}
-
+chx = ""
 os.system("clear")
+
+def getParams(arg) :
+        json_data=open('someCity.json').read()
+        data = json.loads(json_data)
+        datacity = data[arg]
+        return getpassAPI(datacity)
 
 def getnowAPI(arg) :
         r = requests.get("http://api.open-notify.org/iss-now.json")
@@ -67,6 +73,6 @@ print('\nDate et heure de la station spacial : {}\n'.format(date))
 print("La position de la station est :")
 print('\tLongitude : {}'.format(getnowAPIpos("longitude")))
 print('\tLatitude : {}\n'.format(getnowAPIpos("latitude")))
-print("Prochain passage proche de Paris :")
-getpassAPI(Paris)
 getastrosAPI()
+chx = raw_input("Pour savoir quand la station passera au dessus de votre ville\nVeuillez entrer le nom de votre ville :\n")
+getParams(chx)
