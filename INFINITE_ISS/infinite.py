@@ -37,8 +37,13 @@ def menu() :
 		clearScreen()
 		print("\nWelcome to ISS Infinite\n\t1° Afficher les info ISS actuels\n\t2° Afficher les prochains passages\n\t3° Afficher les astronautes présents\n\t4° Exit\n")
 		mnu = raw_input("Entre une valeurs numérique :\n")
-		mnu = int(mnu)
-		return menu()
+		try:
+			mnu = int(mnu)
+			return menu()
+		except ValueError:
+			print("\tErreur de saisie, caractère non pris en charge\t")
+			mnu = 0
+			return menu()
 
 	elif mnu == 1 : 
 		clearScreen()
@@ -46,33 +51,58 @@ def menu() :
 		print('\tLongitude : {}'.format(getnowAPIpos("longitude")))
 		print('\tLatitude : {}\n'.format(getnowAPIpos("latitude")))
 		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
-		retrnMnu = int(retrnMnu)
-		return retourMenu(retrnMnu)
+		try:
+			retrnMnu = int(retrnMnu)
+			return retourMenu(retrnMnu)
+		except ValueError:
+			print("\tErreur de saisie, caractère non pris en charge\t")
+			mnu = 0
+			return menu()
 
 	elif mnu == 2 : 
 		clearScreen()
 		chx = raw_input("Pour savoir quand la station passera au dessus de votre ville\nVeuillez entrer le nom de votre ville :\n")
-		getParams(chx)
-		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
-		retrnMnu = int(retrnMnu)
-		return retourMenu(retrnMnu)
+		try:
+			getParams(chx)
+			retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
+			try:
+				retrnMnu = int(retrnMnu)
+				return retourMenu(retrnMnu)
+			except ValueError:
+				print("\tErreur de saisie, caractère non pris en charge\t")
+				mnu = 0
+				return menu()
+		except KeyError:
+			print("\tVille absente\t")
+			mnu = 2
+			return menu()
 
 	elif mnu == 3 : 
 		clearScreen()	
 		getastrosAPI()
 		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
-		retrnMnu = int(retrnMnu)
-		return retourMenu(retrnMnu)
+		try:
+			retrnMnu = int(retrnMnu)
+			return retourMenu(retrnMnu)
+		except ValueError:
+			print("\tErreur de saisie, caractère non pris en charge\t")
+			mnu = 0
+			return menu()
 
 	elif mnu == 4 :
 		return sys.exit()
 
 	else :
 		clearScreen()
-		print("\tErreur de saisie, caractère non pris en charge(else menu)\t")
+		print("\tErreur de saisie, caractère non pris en charge\t")
 		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
-		retrnMnu = int(retrnMnu)
-		return retourMenu(retrnMnu)
+		try:
+			retrnMnu = int(retrnMnu)
+			return retourMenu(retrnMnu)
+		except ValueError:
+			print("\tErreur de saisie, caractère non pris en charge\t")
+			mnu = 0
+			return menu()
 
 def getParams(arg) :
         json_data=open('someCity.json').read()
