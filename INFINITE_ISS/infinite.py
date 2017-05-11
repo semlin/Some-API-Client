@@ -3,13 +3,76 @@
 
 #Prérequis pip install requests
 
-import requests, os, json, datetime
+import requests, os, json, datetime, sys
 from time import gmtime, strftime
 
-NY = {"lat": 40.71, "lon": -74}
-Paris = {"lat": 48.83, "lon": 2.333}
 chx = ""
+mnu = 0
+
 os.system("clear")
+
+def clearScreen():
+	os.system("clear")
+	return
+
+def retourMenu(arg):
+	global mnu
+	if arg == 1 :
+		mnu = 0
+		mnu = int(mnu)
+		return menu()
+
+	elif arg == 2 :
+		return sys.exit()
+
+	else :
+		print("\tErreur de saisie, caractère non pris en charge\t")
+		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
+		retrnMnu = int(retrnMnu)
+		return retourMenu(retrnMnu)
+
+def menu() :
+	global mnu
+	if mnu == 0 :
+		clearScreen()
+		print("\nWelcome to ISS Infinite\n\t1° Afficher les info ISS actuels\n\t2° Afficher les prochains passages\n\t3° Afficher les astronautes présents\n\t4° Exit\n")
+		mnu = raw_input("Entre une valeurs numérique :\n")
+		mnu = int(mnu)
+		return menu()
+
+	elif mnu == 1 : 
+		clearScreen()
+		print("La position de la station est :")
+		print('\tLongitude : {}'.format(getnowAPIpos("longitude")))
+		print('\tLatitude : {}\n'.format(getnowAPIpos("latitude")))
+		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
+		retrnMnu = int(retrnMnu)
+		return retourMenu(retrnMnu)
+
+	elif mnu == 2 : 
+		clearScreen()
+		chx = raw_input("Pour savoir quand la station passera au dessus de votre ville\nVeuillez entrer le nom de votre ville :\n")
+		getParams(chx)
+		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
+		retrnMnu = int(retrnMnu)
+		return retourMenu(retrnMnu)
+
+	elif mnu == 3 : 
+		clearScreen()	
+		getastrosAPI()
+		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
+		retrnMnu = int(retrnMnu)
+		return retourMenu(retrnMnu)
+
+	elif mnu == 4 :
+		return sys.exit()
+
+	else :
+		clearScreen()
+		print("\tErreur de saisie, caractère non pris en charge(else menu)\t")
+		retrnMnu = raw_input("\n\n1 : Menu\t2 : Exit\n")
+		retrnMnu = int(retrnMnu)
+		return retourMenu(retrnMnu)
 
 def getParams(arg) :
         json_data=open('someCity.json').read()
@@ -69,10 +132,5 @@ def timestampToDate(timestamps, datePattern):
 tmstmp = getnowAPI("timestamp")
 date = timestampToDate(tmstmp, "%b %d %Y %H:%M")
 
-print('\nDate et heure de la station spacial : {}\n'.format(date))
-print("La position de la station est :")
-print('\tLongitude : {}'.format(getnowAPIpos("longitude")))
-print('\tLatitude : {}\n'.format(getnowAPIpos("latitude")))
-getastrosAPI()
-chx = raw_input("Pour savoir quand la station passera au dessus de votre ville\nVeuillez entrer le nom de votre ville :\n")
-getParams(chx)
+clearScreen()
+menu()
