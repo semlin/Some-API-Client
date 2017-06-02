@@ -1,6 +1,14 @@
 # INFINITE_ISS
 
-Pré requis : lib requests à installer avec pypi qui sert à communiquer avec l'API.
+### Desc
+
+Petit soft qui contact l'API de l'ISS pour récupérer des information et les afficher.
+    - Astronaute
+    - Géoloc (Prévision, Atuelle)
+
+### Pré requis : 
+
+lib requests à installer avec pypi qui sert à communiquer avec l'API.
 
 Instruction d'utilisation disponible uniquement sur Jessie.
 Fonctionnement assuré sur Jessie et Stretch (même procédure).
