@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user data-id="1">
+        <pool>flypool</pool>
+        <exchange>Kraken</exchange>
+        <currency>ZEC</currency>
+        <wallet>t1bwNKfdr93yS5fi1xH1WGPsZvQ1gyA6rRt</wallet>
+    </user>
+</users>
